@@ -18,23 +18,21 @@ still be block elements, stacked vertically. We'll add styling later.
 */
 
 export default function App() {
-      // <Hero />
   const deck = data.map(item => {
     return (
       <Card 
-        img={item.coverImg}
-        rating={item.stats.rating}
-        reviewCount={item.stats.reviewCount}
-        country={item.location}
-        title={item.title}
-        price={item.price}
+        key={item.id}
+        {...item}
       />
     )
   });
   return (
-    <div className="app">
+    <div>
       <Navbar />
-      {deck}
+      <Hero />
+      <section className="cards-list">
+        {deck}
+      </section>
     </div>
   );
 }
